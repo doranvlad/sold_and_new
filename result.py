@@ -26,7 +26,7 @@ def find_date():
 
 
 def result():
-    file1_path, file2_path = find_date()
+    file2_path, file1_path = find_date()
 
     df1 = pd.read_excel(file1_path)
     df2 = pd.read_excel(file2_path)
@@ -42,6 +42,6 @@ def result():
         df1.insert(insert_index, 'ОК-Цена', df1['Цена'] % 10)
         df1.insert(df1.columns.get_loc('Ц.пост.2') + 1, 'Сумма', df1['Ц.пост.2'] * df1['Кол.'])
         df1.to_excel(writer, sheet_name='Общий список', index=False)
-        new_in_file1.to_excel(writer, sheet_name='Продано', index=False)
-        new_in_file2.to_excel(writer, sheet_name='Новое', index=False)
+        new_in_file2.to_excel(writer, sheet_name='Продано', index=False)
+        new_in_file1.to_excel(writer, sheet_name='Новое', index=False)
         new_in_file3.to_excel(writer, sheet_name='Расценка', index=False)
